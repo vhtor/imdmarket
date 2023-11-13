@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Projeto 02 - IMDMarket</string>
+    <string name="app_title">IMDMARKET</string>
+    <string name="login_fragment_main_text">Faça login</string>
+    <string name="login_input_text">Usuário</string>
+    <string name="password_input_text">Senha</string>
+    <string name="login_button_text">Entrar</string>
+    <string name="forgot_password_button_text">Esqueci meu login/senha</string>
+    <string name="menu_title">O que deseja fazer?</string>
+    <string name="menu_option_1">Cadastrar produto</string>
+    <string name="menu_option_2">Listar produtos</string>
+    <string name="menu_option_3">Alterar produto</string>
+    <string name="menu_option_4">Deletar produtos</string>
+</resources>
