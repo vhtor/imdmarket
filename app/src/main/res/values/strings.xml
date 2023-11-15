@@ -18,4 +18,8 @@
     <string name="estoque_produto_hint">Estoque</string>
     <string name="salvar_button_text">Salvar</string>
     <string name="limpar_button_text">Limpar</string>
+    <string name="alterar_produto_title">Alterar Produto</string>
+    <string name="alterar_button_text">Alterar</string>
+    <string name="deletar_produto_title">Deletar Produto</string>
+    <string name="deletar_button_text">Deletar</string>
 </resources>

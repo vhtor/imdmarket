@@ -27,15 +27,18 @@ public class LoginFragment extends Fragment {
     public View onCreateView(
             LayoutInflater inflater,
             ViewGroup container,
-            Bundle savedInstanceState) {
+            Bundle savedInstanceState
+    ) {
         View view = inflater.inflate(R.layout.login_fragment, container, false);
+
         usernameInput = view.findViewById(R.id.username_input);
         passwordInput = view.findViewById(R.id.password_input);
 
-        // Get user input when login button is clicked
+        // Capturar o evento de clique no botão de login
         Button loginBtn = view.findViewById(R.id.login_button);
         loginBtn.setOnClickListener(event -> {
-            boolean podeEntrar = validateLogin();
+            boolean podeEntrar = validarLogin();
+
             if (podeEntrar) {
                 renderMenu();
             }
@@ -46,7 +49,7 @@ public class LoginFragment extends Fragment {
 
 
 
-    private boolean validateLogin() {
+    private boolean validarLogin() {
         String usernameInputText = usernameInput.getText().toString();
         String passwordInputText = passwordInput.getText().toString();
 
