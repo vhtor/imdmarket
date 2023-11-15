@@ -5,16 +5,15 @@
     android:id="@+id/cadastrar_produto_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".produto.CadastrarProdutoFragment"
-    android:padding="20dp">
+    tools:context=".produto.CadastrarProdutoFragment">
 
     <TextView
         android:id="@+id/cadastrar_produto_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="80sp"
         android:text="@string/alterar_produto_title"
         android:textSize="28sp"
-        android:layout_marginTop="80sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

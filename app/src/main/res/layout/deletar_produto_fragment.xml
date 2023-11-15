@@ -5,16 +5,15 @@
     android:id="@+id/cadastrar_produto_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".produto.CadastrarProdutoFragment"
-    android:padding="20dp">
+    tools:context=".produto.CadastrarProdutoFragment">
 
     <TextView
         android:id="@+id/deletar_produto_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="80sp"
         android:text="@string/deletar_produto_title"
         android:textSize="28sp"
-        android:layout_marginTop="80sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -38,8 +37,8 @@
         android:background="@drawable/button_round_corner"
         android:text="@string/limpar_button_text"
         android:textSize="22sp"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/deletar_button"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/codigo_produto_input" />
 
     <Button

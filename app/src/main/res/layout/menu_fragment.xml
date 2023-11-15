@@ -27,7 +27,7 @@
         app:layout_constraintTop_toBottomOf="@id/menu_title">
 
         <Button
-            android:id="@+id/menu_option_1"
+            android:id="@+id/cadastrar_produto_btn"
             android:layout_width="150dp"
             android:layout_height="120dp"
             android:background="@drawable/button_round_corner"
@@ -35,21 +35,21 @@
             android:textSize="22sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/menu_option_2"/>
+            app:layout_constraintEnd_toStartOf="@id/listar_produtos_btn"/>
 
         <Button
-            android:id="@+id/menu_option_2"
+            android:id="@+id/listar_produtos_btn"
             android:layout_width="150dp"
             android:layout_height="120dp"
             android:background="@drawable/button_round_corner"
             android:text="@string/menu_option_2"
             android:textSize="22sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/menu_option_1"
+            app:layout_constraintStart_toEndOf="@id/cadastrar_produto_btn"
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            android:id="@+id/menu_option_3"
+            android:id="@+id/alterar_produto_btn"
             android:layout_width="150dp"
             android:layout_height="120dp"
             android:layout_marginTop="20dp"
@@ -57,11 +57,11 @@
             android:text="@string/menu_option_3"
             android:textSize="22sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/menu_option_1"
-            app:layout_constraintEnd_toStartOf="@id/menu_option_4"/>
+            app:layout_constraintTop_toBottomOf="@id/cadastrar_produto_btn"
+            app:layout_constraintEnd_toStartOf="@id/deletar_produto_btn"/>
 
         <Button
-            android:id="@+id/menu_option_4"
+            android:id="@+id/deletar_produto_btn"
             android:layout_width="150dp"
             android:layout_height="120dp"
             android:layout_marginTop="20dp"
@@ -69,7 +69,19 @@
             android:text="@string/menu_option_4"
             android:textSize="22sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/menu_option_3"
-            app:layout_constraintTop_toBottomOf="@id/menu_option_2" />
+            app:layout_constraintStart_toEndOf="@id/alterar_produto_btn"
+            app:layout_constraintTop_toBottomOf="@id/listar_produtos_btn" />
+
+        <Button
+            android:id="@+id/buscar_produto_btn"
+            android:layout_width="150dp"
+            android:layout_height="120dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/button_round_corner"
+            android:text="@string/menu_option_5"
+            android:textSize="22sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/alterar_produto_btn"
+            app:layout_constraintEnd_toEndOf="parent"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

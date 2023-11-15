@@ -1,21 +1,36 @@
 package br.ufrn.imd.mobile.imdmarket;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentTransaction;
-
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.widget.Button;
+import android.widget.ImageButton;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentTransaction;
 
 public class MainActivity extends AppCompatActivity {
+
+    ImageButton homeBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        homeBtn = findViewById(R.id.home_button);
+        homeBtn.setOnClickListener(event -> {
+            renderMenuFragment();
+        });
+
         setUpLoginPreference();
         renderLoginFragment();
+    }
+
+    private void renderMenuFragment() {
+        FragmentTransaction fragTransaction = getSupportFragmentManager().beginTransaction();
+        fragTransaction.replace(R.id.app_frame, new MenuFragment());
+        fragTransaction.commit();
     }
 
     public void renderLoginFragment(){
