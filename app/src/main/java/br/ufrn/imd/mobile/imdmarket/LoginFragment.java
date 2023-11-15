@@ -5,14 +5,13 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-
-import java.util.Objects;
 
 public class LoginFragment extends Fragment {
     TextView usernameInput, passwordInput;
@@ -38,7 +37,7 @@ public class LoginFragment extends Fragment {
         loginBtn.setOnClickListener(event -> {
             boolean podeEntrar = validateLogin();
             if (podeEntrar) {
-                fazerLogin();
+                renderMenu();
             }
         });
 
@@ -63,7 +62,11 @@ public class LoginFragment extends Fragment {
         return usernameInputText.equals(usernamePreference) && passwordInputText.equals(passwordPreference);
     }
 
-    private void fazerLogin() {
+    private void renderMenu() {
         System.out.println("fazendo login");
+        FragmentTransaction fragTransaction = this.getActivity().getSupportFragmentManager().beginTransaction();
+        fragTransaction.replace(R.id.app_frame, new MenuFragment());
+        fragTransaction.commit();
+
     }
 }
