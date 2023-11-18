@@ -1,5 +1,7 @@
 package br.ufrn.imd.mobile.imdmarket.produto;
 
+import static br.ufrn.imd.mobile.imdmarket.utils.CampoUtils.limparCampos;
+
 import android.content.ContentValues;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -15,7 +17,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import br.ufrn.imd.mobile.imdmarket.MenuFragment;
 import br.ufrn.imd.mobile.imdmarket.R;
-import br.ufrn.imd.mobile.imdmarket.database.BancoProdutosAdmin;
+import br.ufrn.imd.mobile.imdmarket.database.BancoProdutosManager;
 import br.ufrn.imd.mobile.imdmarket.utils.ValidatorUtils;
 
 public class CadastrarProdutoFragment extends Fragment {
@@ -33,6 +35,9 @@ public class CadastrarProdutoFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.cadastrar_produto_fragment, container, false);
+
+        // Deixando botão Home visível apenas na telas fora do login e Menu
+        this.getActivity().findViewById(R.id.back_button).setVisibility(Button.VISIBLE);
 
         codigoInput = view.findViewById(R.id.codigo_produto_input);
         nomeInput = view.findViewById(R.id.nome_produto_input);
@@ -54,12 +59,18 @@ public class CadastrarProdutoFragment extends Fragment {
             }
         });
 
+        // Capturar o evento de clique no botão de limpar
+        Button limparBtn = view.findViewById(R.id.limpar_button);
+        limparBtn.setOnClickListener(event -> {
+            limparCampos(codigoInput, nomeInput, descricaoInput, estoqueInput);
+        });
+
         return view;
     }
 
     private void cadastrarProduto() {
-        BancoProdutosAdmin admin = new BancoProdutosAdmin(this.getActivity(), "bancoProdutos", null, 1);
-        SQLiteDatabase banco = admin.getWritableDatabase();
+        BancoProdutosManager dbManager = new BancoProdutosManager(this.getActivity(), "bancoProdutos", null, 1);
+        SQLiteDatabase banco = dbManager.getWritableDatabase();
 
         ContentValues registroSalvar = new ContentValues();
         registroSalvar.put("codigo", codigoInput.getText().toString());

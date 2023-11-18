@@ -5,7 +5,8 @@
     android:id="@+id/cadastrar_produto_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".produto.CadastrarProdutoFragment">
+    tools:context=".produto.CadastrarProdutoFragment"
+    android:padding="20dp">
 
     <TextView
         android:id="@+id/cadastrar_produto_title"

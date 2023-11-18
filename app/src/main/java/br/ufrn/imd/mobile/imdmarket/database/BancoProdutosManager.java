@@ -4,9 +4,9 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-public class BancoProdutosAdmin extends SQLiteOpenHelper {
+public class BancoProdutosManager extends SQLiteOpenHelper {
 
-    public BancoProdutosAdmin(Context ctx, String nome, SQLiteDatabase.CursorFactory factory, int version) {
+    public BancoProdutosManager(Context ctx, String nome, SQLiteDatabase.CursorFactory factory, int version) {
         super(ctx, nome, factory, version);
     }
 

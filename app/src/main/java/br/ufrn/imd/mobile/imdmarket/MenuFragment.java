@@ -12,6 +12,7 @@ import androidx.fragment.app.FragmentTransaction;
 import br.ufrn.imd.mobile.imdmarket.produto.AlterarProdutoFragment;
 import br.ufrn.imd.mobile.imdmarket.produto.CadastrarProdutoFragment;
 import br.ufrn.imd.mobile.imdmarket.produto.DeletarProdutoFragment;
+import br.ufrn.imd.mobile.imdmarket.produto.ListarProdutoFragment;
 
 public class MenuFragment extends Fragment {
 
@@ -32,11 +33,11 @@ public class MenuFragment extends Fragment {
     ) {
         View view = inflater.inflate(R.layout.menu_fragment, container, false);
 
-        // Deixando botão Home visível apenas na tela de Menu
-        this.getActivity().findViewById(R.id.home_button).setVisibility(Button.VISIBLE);
+        // Deixando botão Home visível apenas nas telas fora do Login e Menu
+        this.getActivity().findViewById(R.id.back_button).setVisibility(Button.INVISIBLE);
 
         cadastrarProdutoBtn = view.findViewById(R.id.cadastrar_produto_btn);
-        listarProdutosBtn = view.findViewById(R.id.listar_produtos_btn);
+        listarProdutosBtn = view.findViewById(R.id.listar_button);
         alterarProdutoBtn = view.findViewById(R.id.alterar_produto_btn);
         deletarProdutoBtn = view.findViewById(R.id.deletar_produto_btn);
 
@@ -45,7 +46,7 @@ public class MenuFragment extends Fragment {
         });
 
         listarProdutosBtn.setOnClickListener(event -> {
-            //renderFragment(new ListarProdutosFragment());
+            renderFragment(new ListarProdutoFragment());
         });
 
         alterarProdutoBtn.setOnClickListener(event -> {

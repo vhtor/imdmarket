@@ -4,21 +4,23 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
-import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
 
 public class MainActivity extends AppCompatActivity {
 
-    ImageButton homeBtn;
+    Button homeBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        homeBtn = findViewById(R.id.home_button);
+        // Deixando botão Home visível apenas nas telas fora do Login e Menu
+        findViewById(R.id.back_button).setVisibility(Button.INVISIBLE);
+
+        homeBtn = findViewById(R.id.back_button);
         homeBtn.setOnClickListener(event -> {
             renderMenuFragment();
         });
