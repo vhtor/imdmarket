@@ -6,10 +6,12 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,7 +22,6 @@ import br.ufrn.imd.mobile.imdmarket.database.BancoProdutosManager;
 import br.ufrn.imd.mobile.imdmarket.domain.Produto;
 
 public class ListarProdutoFragment extends Fragment {
-
     ListView produtosListView;
     List<Produto> produtos = new ArrayList<>();
 
@@ -46,6 +47,24 @@ public class ListarProdutoFragment extends Fragment {
         produtosListView = view.findViewById(R.id.produtos_list_view);
         popularListaProdutos();
         setListaProdutosAdapter();
+
+        // Mostrar detalhes do produto ao clicar em um item da lista
+        produtosListView.setOnItemClickListener((adapterView, view1, position, id) -> {
+            Produto produto = (Produto) adapterView.getItemAtPosition(position);
+            DetalheProdutoFragment produtoDetalhesFragment = new DetalheProdutoFragment();
+
+            Bundle bundle = new Bundle();
+            bundle.putString("codigo", produto.getCodigo());
+            bundle.putString("nome", produto.getNome());
+            bundle.putString("descricao", produto.getDescricao());
+            bundle.putInt("estoque", produto.getEstoque());
+
+            produtoDetalhesFragment.setArguments(bundle);
+
+            FragmentTransaction fragTransaction = getActivity().getSupportFragmentManager().beginTransaction();
+            fragTransaction.replace(R.id.app_frame, produtoDetalhesFragment);
+            fragTransaction.commit();
+        });
 
         return view;
     }
