@@ -3,6 +3,7 @@ package br.ufrn.imd.mobile.imdmarket.produto;
 import static br.ufrn.imd.mobile.imdmarket.utils.CampoUtils.limparCampos;
 
 import android.content.ContentValues;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -92,6 +93,18 @@ public class AlterarProdutoFragment extends Fragment {
             Toast.makeText(this.getActivity(), "Preencha todos os campos", Toast.LENGTH_SHORT).show();
             return false;
         };
+
+        BancoProdutosManager bancoProdutosManager = new BancoProdutosManager(this.getActivity(), "bancoProdutos", null, 1);
+        SQLiteDatabase banco = bancoProdutosManager.getWritableDatabase();
+
+        String codigo = codigoInput.getText().toString();
+        String sql = "SELECT * FROM produtos WHERE codigo = " + codigo;
+
+        Cursor result = banco.rawQuery(sql, null);
+        if (result.getCount() == 0) {
+            Toast.makeText(this.getActivity(), "Produto não encontrado", Toast.LENGTH_SHORT).show();
+            return false;
+        }
 
         return true;
     }
